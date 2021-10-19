@@ -1,0 +1,133 @@
+<!-- /sections/text-marquee.liquid -->
+
+<div class="section--marquee {{ section.settings.height }} " id = "text--marquee"  data-section-id="{{ section.id }}" data-section-type="hero" data-overlay-header>	
+  <div class="marquee--container2">
+    <div class="marquee--area">
+      {% unless section.settings.marquee--text == '' %}
+        <span class="trickerItem">
+          {{section.settings.marquee--text}}
+        </span>       
+      {% endunless %}   
+
+      {% unless section.settings.marquee--text == '' %}
+        <span class="trickerItem">
+          {{section.settings.marquee--text}}
+        </span>       
+      {% endunless %}  
+
+      {% unless section.settings.marquee--text == '' %}
+        <span class="trickerItem">
+          {{section.settings.marquee--text}}
+        </span>       
+      {% endunless %}   
+
+     {% unless section.settings.marquee--text == '' %}
+        <span class="trickerItem">
+          {{section.settings.marquee--text}}
+        </span>       
+      {% endunless %}   
+
+      {% unless section.settings.marquee--text == '' %}
+        <span class="trickerItem">
+          {{section.settings.marquee--text}}
+        </span>       
+      {% endunless %}   
+
+      {% unless section.settings.marquee--text == '' %}
+        <span class="trickerItem">
+          {{section.settings.marquee--text}}
+        </span>       
+      {% endunless %}  
+
+      {% unless section.settings.marquee--text == '' %}
+        <span class="trickerItem">
+          {{section.settings.marquee--text}}
+        </span>       
+      {% endunless %}   
+
+      {% unless section.settings.marquee--text == '' %}
+        <span class="trickerItem">
+          {{section.settings.marquee--text}}
+        </span>       
+      {% endunless %}  
+
+      {% unless section.settings.marquee--text == '' %}
+        <span class="trickerItem">
+          {{section.settings.marquee--text}}
+        </span>       
+      {% endunless %}   
+
+      {% unless section.settings.marquee--text == '' %}
+        <span class="trickerItem">
+          {{section.settings.marquee--text}}
+        </span>       
+      {% endunless %}  
+
+      {% unless section.settings.marquee--text == '' %}
+        <span class="trickerItem">
+          {{section.settings.marquee--text}}
+        </span>       
+      {% endunless %}  
+
+      {% unless section.settings.marquee--text == '' %}
+        <span class="trickerItem">
+          {{section.settings.marquee--text}}
+        </span>       
+      {% endunless %}  
+
+      {% unless section.settings.marquee--text == '' %}
+        <span class="trickerItem">
+          {{section.settings.marquee--text}}
+        </span>       
+      {% endunless %}  
+
+      {% unless section.settings.marquee--text == '' %}
+        <span class="trickerItem">
+          {{section.settings.marquee--text}}
+        </span>       
+      {% endunless %}   
+
+      {% unless section.settings.marquee--text == '' %}
+        <span class="trickerItem">
+          {{section.settings.marquee--text}}
+        </span>       
+      {% endunless %}     
+
+    </div>  
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Text Marquee",
+    "settings": [  
+        {
+          "type": "text",
+          "id": "marquee--text",
+          "label": "Text",
+          "default": "Marquee Text"
+        }       
+    ],
+    "presets": [
+        {
+        "name": "Text Marquee",
+        "category": "Marquee"
+        }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+  
+    .marquee--container2 .marquee--area span{
+      	color: #fff;	
+		font-style: italic;
+    	font-size: 20px;
+    	font-weight: 600;
+    }
+	
+{% endstylesheet %}
+
+{% javascript %}
+	
+{% endjavascript %}

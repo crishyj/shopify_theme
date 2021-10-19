@@ -1,0 +1,222 @@
+<!-- /sections/index-canvas-banner.liquid -->
+
+<div class="section--canvasBanner fade-in-child preventOverflow {{ section.settings.height }} {{ section.settings.color }}" data-section-id="{{ section.id }}" data-section-type="hero" data-overlay-header>
+  
+  <div class="flex-absolute text-center">
+    <div class="wrapper preventOverflowContent">
+      {% unless section.settings.mainTitle == '' %}
+        <div class="canvasBanner--title">{{ section.settings.mainTitle | escape }}</div>
+      {% endunless %}
+      {% unless section.settings.subTitle == '' %}
+      	<div class="text-center">
+        	<div class="canvasBanner--subtitle">{{ section.settings.subTitle }}</div>
+      	</div>
+      {% endunless %}
+      <div>
+        {% unless section.settings.description1 == '' %}            
+            <span class="canvasBanner--description1">{{ section.settings.description1 }}</span>
+        {% endunless %}
+        {% unless section.settings.description2 == '' %}            
+            <span class="canvasBanner--description2">{{ section.settings.description2 }}</span>
+        {% endunless %}
+      </div>     
+    </div>
+  </div>
+      
+  {% if section.settings.link_text == '' and section.settings.link %}
+    </a>
+  {% endif %}
+  {% if section.settings.height == 'use_screen_full' %}
+  <div class="scroll_icon_wrap">
+    <a href="#scroll-{{ section.id }}" class="scroll_link bloop">
+      <span class="scroll_icon"></span>
+    </a>
+  </div>
+  <div class="scroll__link" id="scroll-{{ section.id }}"></div>
+  {% endif %}
+</div>
+
+
+{% schema %}
+{
+  "name": "Canvas Banner",
+  "settings": [    
+    {
+      "type": "select",
+      "id": "height",
+      "label": "Section height",
+      "default": "use_screen_two_thirds",
+      "options": [
+        { "value": "use_screen_full", "label": "Full screen height"},
+        { "value": "use_screen_three_quarters", "label": "Three quarters of screen height"},
+        { "value": "use_screen_two_thirds", "label": "Two thirds of screen height"},
+        { "value": "use_screen_one_half", "label": "One half of screen height"},
+        { "value": "use_screen_one_third", "label": "One third of screen height"},
+        { "value": "use_pixels_800", "label": "800px" },
+        { "value": "use_pixels_650", "label": "650px" },
+        { "value": "use_pixels_500", "label": "500px" },
+        { "value": "use_image", "label": "Image height"}
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Text"
+    },
+    {
+      "type": "text",
+      "id": "mainTitle",
+      "label": "Main Title",
+      "default": "SPRING SALE"
+    },
+    {
+      "type": "text",
+      "id": "subTitle",
+      "label": "Sub Title",
+      "default": "FREE JETPACK SMOOTHIES"
+    },
+    {
+      "type": "text",
+      "id": "description1",
+      "label": "First Description",
+      "default": "WITH EACH BLENDJET"
+    },
+    {
+      "type": "text",
+      "id": "description2",
+      "label": "Second Description",
+      "default": " DISCOUNT APPLIED AT CHECKOUT"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Alignment",
+      "default": "align--middle-center",
+      "options": [
+        { "value": "align--top-left", "label": "Top left"},
+        { "value": "align--top-center", "label": "Top center"},
+        { "value": "align--top-right", "label": "Top right"},
+        { "value": "align--middle-left", "label": "Middle left"},
+        { "value": "align--middle-center", "label": "Absolute center"},
+        { "value": "align--middle-right", "label": "Middle right"},
+        { "value": "align--bottom-left", "label": "Bottom left"},
+        { "value": "align--bottom-center", "label": "Bottom center"},
+        { "value": "align--bottom-right", "label": "Bottom right"}
+      ]
+    },
+    {
+      "type":    "range",
+      "id":      "overlay_opacity",
+      "min":     0,
+      "max":     100,
+      "step":    5,
+      "label":   "Image overlay opacity",
+      "info":    "Increase contrast for legible text.",
+      "default": 15
+    },
+    {
+      "type": "select",
+      "id": "color",
+      "label": "Text color",
+      "default": "palette--contrast--dark",
+      "options": [
+        { "value": "palette--contrast--dark", "label": "White"},
+        { "value": "palette--primary", "label": "Primary accent"},
+        { "value": "palette--secondary", "label": "Secondary accent"},
+        { "value": " ", "label": "Text color"},
+        { "value": "palette--contrast", "label": "Black"},
+        { "value": "palette--primary--dark", "label": "Primary dark accent"},
+        { "value": "palette--secondary--dark", "label": "Secondary dark accent"},
+        { "value": "palette--dark", "label": "Inverted text color"}
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Text",
+      "default": "View products"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button style",
+      "default": "btn",
+      "options": [
+        { "value": "btn", "label": "Solid button"},
+        { "value": "btn--soft", "label": "Soft button"},
+        { "value": "btn--outline", "label": "Outlined button"}
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Canvas Banner",
+      "category": "Canvas Banner"
+}
+  ]
+}
+{% endschema %}
+
+
+{% stylesheet %}
+.section--canvasBanner{
+	background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1440' height='160'%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='647.583' y1='3.313' x2='648.523' y2='3.313' gradientTransform='matrix(1440 0 0 160 -932472 -450)'%3E%3Cstop offset='0' stop-color='%23bdd6f7'/%3E%3Cstop offset='.996' stop-color='%23e295c1'/%3E%3C/linearGradient%3E%3Cpath d='M0 0h1440v160H0V0z' fill-rule='evenodd' clip-rule='evenodd' fill='url(%23a)'/%3E%3Cpath d='M656.3 530c-28.1-4.4-56.6-7-84.2-13.5-156.6-37-261.8-130.2-295.2-289.2C232.6 16.4 360.3-169.9 539-215.8c104.7-26.9 197.5-3 269.3 80 98.2 113.6 50 295.1-88.9 338.3-59.5 18.6-113.5 6.2-157.7-38.8-34.6-35.2-41.4-86.3-17.6-126 3.4 5.5 6.5 10.1 9.3 14.9 20 33.7 59.9 53.2 96.5 46.8 45.3-7.8 73.5-37.2 82.4-85.4 6.8-36.8-10.7-73.8-46.4-93.7C600.5-127.1 470-101.3 423 17.4c-47.1 119 20.7 265.7 146.3 318.2 125.4 52.3 272.2 8.2 360.2-108.2 143.2-189.4 85.3-455.9-127-578.1-123.3-71-254.3-83.2-392.2-42.4 1.7-2.4 2.3-4 3.4-4.7 110.1-64.2 227.6-101 356.1-87.3 113.3 12.1 204.6 67.9 277.3 154 96.8 114.5 138 248 122.5 396-22.6 215.9-175.7 410.9-409 454.9-25.3 4.8-51 6.9-76.5 10.3h-27.8v-.1z' opacity='.15' fill-rule='evenodd' clip-rule='evenodd' fill='%23f6f6f6'/%3E%3C/svg%3E");
+	background-size: cover;
+	background-position: 50%;   
+    margin-top: -6px;
+	padding: 20px 0;
+}
+
+.canvasBanner--title{
+	font-size: 3vw;
+    font-weight: 600;
+    color: #fff;
+}
+
+.canvasBanner--subtitle{
+	font-size: 3vw;
+    font-weight: 600;
+    color: #fff;
+	font-style: italic;
+	padding: 0 18px;
+    background-color: #ff8488;
+	margin: auto;
+	width: fit-content;
+	border-radius: 8px;
+	margin-bottom: 10px;
+}
+
+.canvasBanner--description1, .canvasBanner--description2{
+	font-size: 2vw;
+	font-weight: 500;
+}
+
+.canvasBanner--description1{
+	color: #6495ed;
+}
+
+.canvasBanner--description2{
+    color: #373975;
+}
+
+
+@media(min-width: 1020px){
+  .canvasBanner--title, .canvasBanner--subtitle{
+	font-size: 2vw;
+  }
+
+  .canvasBanner--description1, .canvasBanner--description2{
+	font-size: 1vw;
+   }
+}
+
+
+{% endstylesheet %}

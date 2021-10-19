@@ -1,0 +1,26 @@
+
+<div class="powr-countdown-timer" id="dfc4821e_1616673715"></div>
+<script src="https://www.powr.io/powr.js?platform=shopify"></script>
+<script>
+  	var main_frame = document.getElementById('dfc4821e_1616673715');
+	var iframes = main_frame.getElementsByTagName('iframe');
+	console.log(iframes);
+</script>
+
+{% schema %}
+  {
+    "name": "Section name",
+    "settings": []
+  }
+{% endschema %}
+
+{% stylesheet %}
+
+#appView .powrMark{
+	display: none !important;
+}
+
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,361 @@
+{% comment %} Variables {% endcomment %}
+{% capture general_settings %}
+  {{ settings.color--alternative }}
+  {{ settings.color--accent }}
+{% endcapture %}
+
+{% assign alt_color = section.settings.alternative-color %}
+{% assign apply_overlay = section.settings.apply-overlay %}
+{% assign bg_color = section.settings.background-color %}
+{% assign description = section.settings.description %}
+{% assign full_width = section.settings.full-width %}
+{% assign image = section.settings.image %}
+{% assign image_height = section.settings.image-height %}
+{% assign link_text = section.settings.link-text %}
+{% assign link_url = section.settings.link-url %}
+{% assign mobile_overlay = section.settings.mobile-overlay %}
+{% assign overlap = section.settings.overlap %}
+{% assign parallax_enabled = section.settings.parallax-enabled %}
+{% assign text_position = section.settings.text-position %}
+{% assign text_width = section.settings.text-width %}
+{% assign title = section.settings.title %}
+{% assign subtitle = section.settings.subtitle %}
+{% assign trans_overlap = section.settings.transparent-overlap %}
+
+{% assign header_text_exists = true %}
+{% if title == blank and subtitle == blank %}
+  {% assign header_text_exists = false %}
+{% endif %}
+
+{% assign dark_background = false %}
+{% if bg_color == 'dark' %}
+  {% assign dark_background = true %}
+{% endif %}
+
+{% assign text_exists = true %}
+{% if title == blank and description == blank %}
+  {% assign text_exists = false %}
+{% endif %}
+
+{% assign cover_link = false %}
+{% if link_text == blank and link_url != blank %}
+  {% assign cover_link = true %}
+{% endif %}
+
+{% comment %} View {% endcomment %}
+<div
+  class="featured-content--root"
+  style="{% render 'framework--background-colors', bg_color: bg_color %}"
+  data-section-id="{{ section.id }}"
+  data-alternative-color="{{ alt_color }}"
+  data-apply-overlay="{{ apply_overlay }}"
+  data-dark-background="{{ dark_background }}"
+  data-full-width="{{ full_width }}"
+	data-image-height="{{ image_height }}"
+	data-mobile-overlay="{{ mobile_overlay }}"
+  data-overlap="{{ overlap }}"
+  data-text-exists="{{ text_exists }}"
+  data-text-position="{{ text_position }}"
+  data-text-width="{{ text_width }}"
+  data-transparent-overlap="{{ trans_overlap }}"
+>
+  {% if cover_link %}
+    <a href="{{ link_url }}">
+  {% endif %}
+
+  <div class="featured-content--container intro2">
+    <div class="featured-content--image intro2_image">
+      {% if image %}
+        {%
+          render "framework--image",
+          image: image,
+          full_width: true,
+          parallax: parallax_enabled
+        %}
+      {% else %}
+        {%
+          render "framework--placeholder",
+          type: "lifestyle",
+          aspect_ratio: 1.45,
+          placeholder_index: 2
+        %}
+      {% endif %}
+       {% if link_text != blank %}
+            <div class="featured-content--link intro2_linkbtn" data-item="block-link">
+              <a href="{{ link_url }}">
+                {{ link_text }}
+              </a>
+            </div>
+      {% endif %}
+      {% if
+          title != blank or
+          description != blank or
+          link_text != blank
+      %}
+    </div>
+   
+      <div class="featured-content--text intro2_textcontent">
+        
+          {% if title != blank %}
+        	<div class="intro2_title_area">
+                <h2 class="featured-content--title intro2_title" data-item="section-heading">
+                  {{ title | escape }}
+                </h2>
+            </div>
+          {% endif %}
+
+          {% if description != blank %}
+        	<div class="intro_marquee2_area">
+              <div class="featured-content--description intro2_marquee" data-item="rte-content">
+                {{ description }}   
+                {{ description }}
+              </div>
+            </div>
+          {% endif %}         
+        </div>
+     
+    {% endif %}
+
+    </div>
+
+  {% if cover_link %}
+    </a>
+  {% endif %}
+
+</div>
+
+{% schema %}
+{
+  "name": "Image with Marquee Text",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout and Color"
+    },
+    {
+      "id": "full-width",
+      "label": "Full width",
+      "type": "checkbox",
+      "default": false
+    },
+    {
+      "id": "background-color",
+      "label": "Background color",
+      "type": "select",
+      "options": [
+        { "label": "None", "value": "none" },
+        { "label": "Light grey", "value": "light" },
+        { "label": "Dark", "value": "dark" },
+        { "label": "Accent", "value": "accent" }
+      ],
+      "default": "light"
+    },
+    {
+      "id": "text-position",
+      "label": "Text Position",
+      "type": "select",
+      "options": [
+        { "label": "Top", "value": "top" },
+        { "label": "Bottom", "value": "bottom" },
+        { "label": "Left", "value": "left" },
+        { "label": "Center", "value": "center" },
+        { "label": "Right", "value": "right" }
+      ],
+      "default": "left"
+    },
+    {
+      "id": "text-width",
+      "label": "Text width",
+      "type": "radio",
+      "options": [
+        { "value": "small", "label": "Small"},
+        { "value": "large", "label": "Large"}
+      ],
+      "default": "large"
+    },
+    {
+      "id": "overlap",
+      "label": "Overlap text",
+      "type": "checkbox",
+      "default": true,
+      "info": "Not applicable for centered text"
+    },
+    {
+      "id": "transparent-overlap",
+      "label": "Transparent text background",
+      "type": "checkbox",
+      "default": false
+    },
+    {
+      "id": "alternative-color",
+      "label": "Use alternative text color",
+      "type": "checkbox",
+      "default": false,
+      "info": "This can found under theme settings below."
+    },
+    {
+      "id": "mobile-overlay",
+      "label": "Overlay text on small devices",
+      "type": "checkbox",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "id": "image-height",
+      "label": "Height",
+      "type": "select",
+      "options": [
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large (natural height)" }
+      ],
+      "default": "medium"
+    },
+    {
+      "id": "parallax-enabled",
+      "label": "Enable parallax",
+      "type": "checkbox",
+      "default": false
+    },
+    {
+      "id": "apply-overlay",
+      "label": "Darken image",
+      "type": "checkbox",
+      "default": true,
+      "info": "Can enhance text visibility"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Image with Text"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Text",
+      "default": "<p>Use a combination of image and text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store</p>"
+    },
+    {
+      "type": "url",
+      "id": "link-url",
+      "label": "Link"
+    },
+    {
+      "type": "text",
+      "id": "link-text",
+      "label": "Link text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image with Marquee Text",
+      "category": "Intro"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+	.intro2{
+    	align-items: inherit !important;
+	}
+
+    .intro2_image{
+        position: relative;
+    }
+
+    .intro2_linkbtn{
+        position: absolute;
+       	left: 0;
+		right: 0;
+		bottom: 20%;
+		margin-left: auto;
+		margin-right: auto;
+		width: fit-content;
+    }
+
+	.intro2_linkbtn a{
+		text-decoration: none;
+        border-radius: 40px;
+        border: solid 2px #fff;
+        padding: 10px 30px;
+        color: #fff;
+        font-size: 18px;
+		background: #373795;
+	}
+
+	.intro2_linkbtn a:hover{
+		color: #fff;
+		background: #373775;
+	}
+
+	.intro2_linkbtn a::after{
+		display: none;
+	}
+
+	
+	.intro2_title{
+		font-weight: 600 !important;
+		color: #fff !important;
+	}
+
+    .intro2_textcontent{
+        text-align: center;
+        background: linear-gradient(0deg,#373795,#1e90bb) !important;
+    }   
+	
+	.intro_marquee2_area{
+		height: 500px;
+        overflow: hidden;
+  		position: relative;
+        margin-top: 20px;
+	}
+
+    .intro2_marquee {
+        margin: 0 auto;
+        display: block;  
+        position: absolute;
+        overflow: hidden;		
+        animation: marquee2 5s linear infinite;
+		color: #fff;
+		font-style: italic;
+		font-size: 25px;
+		font-weight: 600;
+		left: 0;
+		right: 0;
+		margin-left: auto;
+		margin-right: auto;
+		width: fit-content;
+    }
+	
+	.intro2_marquee p{
+		margin-bottom: 5px;	
+	}
+
+    .intro2_marquee:hover{
+        animation-play-state: paused
+    }
+
+    @keyframes marquee2 {
+        0% { bottom: -100%; }
+  		100% { bottom: 0;}
+    }	
+
+	@media only screen and (max-width: 767px){
+		.intro2_textcontent{
+			position: relative !important;
+		}		
+	
+	}
+    
+	
+{% endstylesheet %}

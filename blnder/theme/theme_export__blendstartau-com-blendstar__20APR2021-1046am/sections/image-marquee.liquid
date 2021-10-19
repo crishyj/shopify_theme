@@ -1,0 +1,244 @@
+<!-- /sections/image-marquee.liquid -->
+
+<div class="section--marquee {{ section.settings.height }} " id = "image--marquee"  data-section-id="{{ section.id }}" data-section-type="hero" data-overlay-header>
+<!-- 	<div class="text-center marquee--title">
+      	AS SEEN ON:
+  	</div> -->
+  <div class="marquee--container1">
+    <div class="marquee--area">
+      {% unless section.settings.imagefile1 == '' %}
+        <span class="trickerItem">
+          <img src="{{ section.settings.imagefile1 }}" id="{{ section.id }}"/>	
+        </span>       
+      {% endunless %}   
+
+      {% unless section.settings.imagefile2 == '' %}
+        <span class="trickerItem">
+           <img src="{{ section.settings.imagefile2 }}" id="{{ section.id }}"/>	
+        </span>       
+      {% endunless %}
+
+      {% unless section.settings.imagefile3 == '' %}
+        <span class="trickerItem">
+           <img src="{{ section.settings.imagefile3 }}" id="{{ section.id }}"/>	
+        </span>       
+      {% endunless %} 
+
+      {% unless section.settings.imagefile4 == '' %}
+        <span class="trickerItem">
+           <img src="{{ section.settings.imagefile4 }}" id="{{ section.id }}"/>	
+        </span>       
+      {% endunless %} 
+
+      {% unless section.settings.imagefile5 == '' %}
+        <span class="trickerItem">
+           <img src="{{ section.settings.imagefile5 }}" id="{{ section.id }}"/>	
+        </span>       
+      {% endunless %} 
+
+      {% unless section.settings.imagefile6 == '' %}
+        <span class="trickerItem">
+           <img src="{{ section.settings.imagefile6 }}" id="{{ section.id }}"/>	
+        </span>       
+      {% endunless %} 
+
+      {% unless section.settings.imagefile7 == '' %}
+        <span class="trickerItem">
+           <img src="{{ section.settings.imagefile7 }}" id="{{ section.id }}"/>	
+        </span>       
+      {% endunless %} 
+
+      {% unless section.settings.imagefile8 == '' %}
+        <span class="trickerItem">
+           <img src="{{ section.settings.imagefile8 }}" id="{{ section.id }}"/>	
+        </span>       
+      {% endunless %} 
+
+      {% unless section.settings.imagefile9 == '' %}
+        <span class="trickerItem">
+           <img src="{{ section.settings.imagefile9 }}" id="{{ section.id }}"/>	
+        </span>       
+      {% endunless %} 
+
+      {% unless section.settings.imagefile10 == '' %}
+        <span class="trickerItem">
+           <img src="{{ section.settings.imagefile10 }}" id="{{ section.id }}"/>	
+        </span>       
+      {% endunless %} 
+
+      {% unless section.settings.imagefile11 == '' %}
+        <span class="trickerItem">
+           <img src="{{ section.settings.imagefile11 }}" id="{{ section.id }}"/>	
+        </span>       
+      {% endunless %} 
+
+      {% unless section.settings.imagefile12 == '' %}
+        <span class="trickerItem">
+           <img src="{{ section.settings.imagefile12 }}" id="{{ section.id }}"/>	
+        </span>       
+      {% endunless %} 
+
+      {% unless section.settings.imagefile13 == '' %}
+        <span class="trickerItem">
+           <img src="{{ section.settings.imagefile13 }}" id="{{ section.id }}"/>	
+        </span>       
+      {% endunless %} 
+
+      {% unless section.settings.imagefile14 == '' %}
+        <span class="trickerItem">
+           <img src="{{ section.settings.imagefile14 }}" id="{{ section.id }}"/>	
+        </span>       
+      {% endunless %} 
+
+      {% unless section.settings.imagefile15 == '' %}
+        <span class="trickerItem">
+           <img src="{{ section.settings.imagefile15 }}" id="{{ section.id }}"/>	
+        </span>       
+      {% endunless %}    
+
+    </div>  
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Image Marquee",
+    "settings": [  
+        {
+          "type": "text",
+          "id": "imagefile1",
+          "label": "Image1 URL",
+          "default": "https://cdn.shopify.com/s/files/1/0554/5122/2212/files/Yahoo-News.png?v=1616040149"
+        },
+        {
+          "type": "text",
+          "id": "imagefile2",
+          "label": "Image2 URL",
+          "default": "https://cdn.shopify.com/s/files/1/0554/5122/2212/files/Yahoo-News.png?v=1616040149"
+        },
+        {
+          "type": "text",
+          "id": "imagefile3",
+          "label": "Image3 URL",
+          "default": "https://cdn.shopify.com/s/files/1/0554/5122/2212/files/Yahoo-News.png?v=1616040149"
+        },
+        {
+          "type": "text",
+          "id": "imagefile4",
+          "label": "Image4 URL",
+          "default": "https://cdn.shopify.com/s/files/1/0554/5122/2212/files/Yahoo-News.png?v=1616040149"
+        },
+        {
+          "type": "text",
+          "id": "imagefile5",
+          "label": "Image5 URL",
+          "default": "https://cdn.shopify.com/s/files/1/0554/5122/2212/files/Yahoo-News.png?v=1616040149"
+        },
+        {
+          "type": "text",
+          "id": "imagefile6",
+          "label": "Image6 URL",
+          "default": "https://cdn.shopify.com/s/files/1/0554/5122/2212/files/Yahoo-News.png?v=1616040149"
+        },
+        {
+          "type": "text",
+          "id": "imagefile7",
+          "label": "Image7 URL",
+          "default": "https://cdn.shopify.com/s/files/1/0554/5122/2212/files/Yahoo-News.png?v=1616040149"
+        },
+        {
+          "type": "text",
+          "id": "imagefile8",
+          "label": "Image8 URL",
+          "default": "https://cdn.shopify.com/s/files/1/0554/5122/2212/files/Yahoo-News.png?v=1616040149"
+        },
+        {
+          "type": "text",
+          "id": "imagefile9",
+          "label": "Image9 URL",
+          "default": "https://cdn.shopify.com/s/files/1/0554/5122/2212/files/Yahoo-News.png?v=1616040149"
+        },
+         {
+          "type": "text",
+          "id": "imagefile10",
+          "label": "Image10 URL",
+          "default": "https://cdn.shopify.com/s/files/1/0554/5122/2212/files/Yahoo-News.png?v=1616040149"
+        },
+         {
+          "type": "text",
+          "id": "imagefile11",
+          "label": "Image11 URL",
+          "default": "https://cdn.shopify.com/s/files/1/0554/5122/2212/files/Yahoo-News.png?v=1616040149"
+        },
+         {
+          "type": "text",
+          "id": "imagefile12",
+          "label": "Image12 URL",
+          "default": "https://cdn.shopify.com/s/files/1/0554/5122/2212/files/Yahoo-News.png?v=1616040149"
+        },
+         {
+          "type": "text",
+          "id": "imagefile13",
+          "label": "Image13 URL",
+          "default": "https://cdn.shopify.com/s/files/1/0554/5122/2212/files/Yahoo-News.png?v=1616040149"
+        },
+         {
+          "type": "text",
+          "id": "imagefile14",
+          "label": "Image14 URL",
+          "default": "https://cdn.shopify.com/s/files/1/0554/5122/2212/files/Yahoo-News.png?v=1616040149"
+        },
+         {
+          "type": "text",
+          "id": "imagefile15",
+          "label": "Image15 URL",
+          "default": "https://cdn.shopify.com/s/files/1/0554/5122/2212/files/Yahoo-News.png?v=1616040149"
+        }            
+    ],
+    "presets": [
+        {
+        "name": "Image Marquee",
+        "category": "Marquee"
+        }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+    .section--marquee{
+      background-color: #373975;
+      padding: 20px 0;
+      overflow: hidden;
+      position: relative;
+    }
+	
+    .marquee--title{
+      color: #7f7fd1;	
+    }
+
+    .marquee--area {
+        margin: 0 auto;
+        white-space: nowrap;
+        box-sizing: border-box;
+        animation: marquee 20s linear infinite;
+        animation-delay: 3s;
+    }
+
+    .marquee-area:hover{
+        animation-play-state: paused
+    }
+
+    @keyframes marquee {
+        0%   { transform: translateX(0%); }
+        100% { transform: translateX(-88%); }
+    }
+	
+    .trickerItem{
+      margin-right: 80px;
+    }
+	
+{% endstylesheet %}
+
+{% javascript %}
+	
+{% endjavascript %}

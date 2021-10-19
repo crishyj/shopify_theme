@@ -1,0 +1,8 @@
+{% section 'product' %}
+
+{% section 'framework--product-recommendations' %}
+
+{% if product.available and product.variants.size > 1 %}
+  {% render 'swatch' with 'Color' as swatch %}
+{% endif %}
+

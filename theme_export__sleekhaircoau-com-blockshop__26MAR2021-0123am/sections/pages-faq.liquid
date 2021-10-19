@@ -1,0 +1,214 @@
+<div class="row full-width">
+  
+  <div>
+    <h3>
+      FAQs
+    </h3>
+  </div>
+  
+   <div id="accordion">
+     
+    <div class="card">
+      <div class="card-header">
+        <div>
+           <a class="card-link" data-toggle="collapse" href="#collapseOne">
+              HOW LONG WILL THE SLEEK STICK BOTTLE LAST?
+          </a>
+        </div>
+        
+        <div class="collapseIcon">
+          	-
+        </div>
+      </div>
+      <div id="collapseOne" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+          If used daily, your Sleek Stick will last around 4-6 weeks. 
+        </div>
+      </div>
+    </div>
+     
+     <div class="card">
+      <div class="card-header">
+        <div>
+           <a class="card-link" data-toggle="collapse" href="#collapseTwo">
+              2.DOES THE SLEEK STICK WORK ON ALL HAIR TYPES? 
+          </a>
+        </div>
+        
+        <div class="collapseIcon">
+          	-
+        </div>
+      </div>
+      <div id="collapseTwo" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+          Our Sleek Stick does work on all hair types and colours. However, if you have curly hair, thick or frizzy you will require more product. 
+        </div>
+      </div>
+    </div>
+     
+     <div class="card">
+      <div class="card-header">
+        <div>
+           <a class="card-link" data-toggle="collapse" href="#collapseThree">
+              ARE YOUR PRODUCTS VEGAN AND CRUELTY FREE? 
+          </a>
+        </div>
+        
+        <div class="collapseIcon">
+          	-
+        </div>
+      </div>
+      <div id="collapseThree" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+          Yes, no baddies or nasties here. 
+        </div>
+      </div>
+    </div>
+     
+         
+     <div class="card">
+      <div class="card-header">
+        <div>
+           <a class="card-link" data-toggle="collapse" href="#collapseFour">
+              CAN I USE SLEEK STICK ON MY CHILDREN? 
+          </a>
+        </div>
+        
+        <div class="collapseIcon">
+          	-
+        </div>
+      </div>
+      <div id="collapseFour" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+          We have formulated the rainbow Sleek Stick just for children. It’s funky packaging will surely be a favourite with your kids. 
+        </div>
+      </div>
+    </div>
+     
+         
+     <div class="card">
+      <div class="card-header">
+        <div>
+           <a class="card-link" data-toggle="collapse" href="#collapseFive">
+              CAN I SELL SLEEK STICK HAIR STYLING WAND? 
+          </a>
+        </div>
+        
+        <div class="collapseIcon">
+          	-
+        </div>
+      </div>
+      <div id="collapseFive" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+          Of course! Become a stockiest and access our wholesale pricing by emailing us at <a href = "mailto: sales@sleekhaircoau.com"> sales@sleekhaircoau.com  </a>
+        </div>
+      </div>
+    </div>
+     
+         
+     <div class="card">
+      <div class="card-header">
+        <div>
+           <a class="card-link" data-toggle="collapse" href="#collapseSix">
+             DO YOU DO COLLABORATIONS? 
+          </a>
+        </div>
+        
+        <div class="collapseIcon">
+          	-
+        </div>
+      </div>
+      <div id="collapseSix" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+          We are always looking for new and exciting opportunities. Email us at <a href = "mailto: sales@sleekhaircoau.com"> sales@sleekhaircoau.com </a>
+        </div>
+      </div>
+    </div>
+     
+         
+     <div class="card">
+      <div class="card-header">
+        <div>
+           <a class="card-link" data-toggle="collapse" href="#collapseSeven">
+              INGREDIENTS 
+          </a>
+        </div>
+        
+        <div class="collapseIcon">
+          	-
+        </div>
+      </div>
+      <div id="collapseSeven" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+          Jojoba, Evening Primrose, Camellia, Water, Glycerin, Acrylic Acid (Ester), Copolymer and Fruit Essence.
+        </div>
+      </div>
+    </div>   
+           
+</div>
+
+{% schema %}
+  {
+    "name": "Section name",
+    "settings": []
+  }
+{% endschema %}
+
+{% stylesheet %}
+	.row{	
+		display: block !important;
+	}
+	
+	#accordion{		
+    	margin-bottom: 50px !important;
+	}
+
+	.card-header{
+		position: relative;
+	}
+
+	.collapseIcon{
+		position: absolute;
+		right: 10px;
+        top: -10px;
+        font-size: 40px;
+	}
+
+	#accordion .card{
+		border: none;
+	}
+
+	#accordion .card-header{
+		background: #fff;
+		border: none;
+		border-top: 1px solid #9554bc;
+        margin-bottom: 0;
+        padding: 26px 15px;
+        border-radius: 0;
+        font-weight: 600;
+	}
+
+	.collapseIcon{
+		color:  #9554bc;
+	}
+  
+  	.accordian_title
+  	{
+      font-weight: 600;
+      padding-bottom: 15px;
+	}
+  	
+  	.accordian_text{
+  		padding-bottom: 15px;
+  	}
+  
+
+{% endstylesheet %}
+
+{% javascript %}
+	  $(".collapse").on('show.bs.collapse', function(){
+        	$(this).prev(".card-header").find(".collapseIcon").text('+');
+        }).on('hide.bs.collapse', function(){
+        	$(this).prev(".card-header").find(".collapseIcon").text('-');
+        });
+{% endjavascript %}
